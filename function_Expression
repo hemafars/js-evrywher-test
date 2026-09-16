@@ -1,0 +1,29 @@
+//  Function Expression، أي أنك تضع الدالة داخل متغير:
+const calc = function (num) {
+  return num * 5;
+};
+//متي تستخدم
+//1- عندما تريد تخزين دالة في متغير ( قيمة الدالة )
+//console.log(variable(5));  //ReferenceError: Cannot access 'variable' before initialization
+const variable = function (num) {
+  return num * 5;
+};
+// console.log(variable(5));
+//2- عندما تريد منع اعادة اسناد الدالة
+// variable = function (num) {
+//   return num * 6; //قمنا يتغير القيمة
+// };
+//TypeError: Assignment to constant variable.
+//3- عندما تريد تمرير دالة اللي دالة اخري ( وهذا اهم استخداماته )
+console.log(allcalc(variable(10), calc(5))); // هنا تم استدعاء الدالة قبل تعريفها
+function allcalc(a, b) {
+  return a + b;
+}
+
+console.log(allcalc(variable(10), calc(5))); //75
+
+// الفرق بينها وبين function declaration in hoisting
+//Function Expression، اذا تم استدعاءها  قبل تعريفها سينتج عن ذلك خطأ
+//ReferenceError: Cannot access 'variable' before initialization
+
+// function declaration ستعمل بشكل طبيعي
