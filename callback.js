@@ -67,3 +67,30 @@ console.log(double);
 // let btn = document.createElement("button");
 // btn.contains("btn");
 // body.appendChild(btn);
+console.log("********************validation*******************");
+function isvalidation(num) {
+  if (typeof num !== "number") {
+    return false;
+  }
+  if (Number.isNaN(num)) {
+    return false;
+  }
+  return num >= 0 && num <= 100;
+}
+console.log(isvalidation(20));
+console.log(isvalidation(50));
+console.log(isvalidation(101));
+console.log(isvalidation(-20));
+console.log(isvalidation("-20"));
+
+function letterGrade(num) {
+  if (isvalidation(num)) {
+    return "?";
+  }
+  if (num >= 90) return "A";
+  if (num >= 80) return "b";
+  if (num >= 70) return "c";
+  if (num >= 60) return "d";
+  
+  return "f";
+}
